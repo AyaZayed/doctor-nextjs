@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1722693859193,
+      "tag": "0000_free_corsair",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1722693947217,
+      "tag": "0001_giant_bill_hollister",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1722694057281,
+      "tag": "0002_left_chameleon",
+      "breakpoints": true
+    }
+  ]
+}

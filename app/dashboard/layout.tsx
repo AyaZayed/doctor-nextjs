@@ -1,4 +1,7 @@
-import "@/app/globals.css";
+import DashboardNav from "@/components/layouts/DashboardNav";
+import Sidebar from "@/components/layouts/Sidebar";
+import "@/styles/globals.css";
+import "@/styles/variables.css";
 
 export default function DashboardLayout({
   children,
@@ -8,9 +11,11 @@ export default function DashboardLayout({
   return (
     <html>
       <body>
-        <nav>navbar</nav>
-        <aside>sidebar</aside>
-        {children}
+        <DashboardNav />
+        <main className="h-screen flex">
+          <Sidebar />
+          <section className="p-8">{children}</section>
+        </main>
       </body>
     </html>
   );

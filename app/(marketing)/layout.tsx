@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
+
+import "@/styles/globals.css";
+import "@/styles/variables.css";
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
 
 export const metadata: Metadata = {
-  title: "Dermatologist",
-  description: "best Dermatologist in egypt",
+  title: "Care Clinic",
+  description: "best Dermatologist clinic in egypt",
 };
 
 export default function RootLayout({
@@ -14,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav>navbar</nav>
+        <Navbar />
         {children}
-        <footer>footer</footer>
+        <Footer />
       </body>
     </html>
   );
