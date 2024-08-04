@@ -1,10 +1,14 @@
 import Hero from "@/components/ui/Hero";
-import React from "react";
+import Image from "next/image";
+import React, { Suspense } from "react";
+import loader from "@/public/loader.gif";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <Suspense fallback={<Image src={loader} alt="spinning loader" />}>
+        <Hero />
+      </Suspense>
     </main>
   );
 }
