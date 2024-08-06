@@ -1,6 +1,6 @@
 import db from "@/db";
 import { users } from "@/db/schema";
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 
 export default async function Dasboard() {
@@ -12,16 +12,16 @@ export default async function Dasboard() {
         user: users,
       })
       .from(users)
+      // @ts-ignore
       .where(eq(users.id, user?.id));
 
     if (match.length === 0) {
-      await db
-        .insert(users)
-        .values({
-          id: user?.id,
-          name: user?.fullName,
-          email: user?.emailAddresses[0].emailAddress,
-        });
+      await db.insert(users).values({
+        // @ts-ignore
+        id: user?.id,
+        name: user?.fullName,
+        email: user?.emailAddresses[0].emailAddress,
+      });
     }
   };
 

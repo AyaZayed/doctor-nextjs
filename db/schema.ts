@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { sql } from "drizzle-orm";
 import { text, sqliteTable } from "drizzle-orm/sqlite-core";
 
@@ -11,7 +12,10 @@ export const users = sqliteTable("users", {
 });
 
 export const gallery = sqliteTable("gallery", {
-  id: text("id").notNull().primaryKey(),
+  id: text("id")
+    .notNull()
+    .primaryKey()
+    .$default(() => randomUUID()),
   user_id: text("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
