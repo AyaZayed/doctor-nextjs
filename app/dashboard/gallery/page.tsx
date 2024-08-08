@@ -5,14 +5,19 @@ import { eq } from "drizzle-orm";
 import React from "react";
 import GalleryItem from "@/components/ui/dashboard/GalleryItem";
 import NewGalleryItem from "@/components/ui/dashboard/NewGalleryItem";
+import { redirect } from "next/navigation";
 
 export default async function Gallery() {
   const user = auth();
   // get gallery data for user
+
+  if (!user) {
+    redirect("/sign-in");
+  }
   const data = await db
     .select()
     .from(gallery)
-    .where(eq(gallery.user_id, user?.userId as string));
+    .where(eq(gallery.user_id, user.userId as string));
 
   return (
     <div>

@@ -4,8 +4,8 @@ import db from "@/db";
 import { gallery } from "@/db/schema";
 
 export default async function newGallery(userId: string, formData: FormData) {
-  const before = formData.get("before") as string;
-  const after = formData.get("after") as string;
+  const before = formData.get("before");
+  const after = formData.get("after");
 
   await db
     .insert(gallery)
